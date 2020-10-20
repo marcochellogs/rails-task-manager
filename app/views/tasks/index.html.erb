@@ -1,0 +1,17 @@
+<h1>Task Manager</h1>
+
+<% @tasks.each do |task| %>
+
+  <div class="d-flex justify-content-center">
+    <ul>
+      <p>
+        <input type="checkbox" disabled readonly <%= task.completed ? "checked='checked'" : "" %> >
+        <%=link_to(task.title, task_path(task))  %>
+        <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+         <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </p>
+    </ul>
+  </div> <br>
+
+<% end %>
